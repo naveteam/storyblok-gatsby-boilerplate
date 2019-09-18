@@ -1,0 +1,2 @@
+# storyblok-gatsby-boilerplate
+
