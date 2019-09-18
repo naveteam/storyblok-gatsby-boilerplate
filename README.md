@@ -1,2 +1,1 @@
-# storyblok-gatsby-boilerplate
-
+# Naveteam Gatsby Storyblock Boilerplate
