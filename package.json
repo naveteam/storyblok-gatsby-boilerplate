@@ -1,0 +1,63 @@
+{
+  "name": "naveteam-gatsby-storyblok-boilerplate",
+  "description": "Gatsby Storyblok boilerplate",
+  "version": "0.0.1",
+  "author": "Gustavo Pinho <gustavo@nave.rs>",
+  "dependencies": {
+    "gatsby": "^2.0.19",
+    "gatsby-image": "^2.0.15",
+    "gatsby-plugin-manifest": "^2.0.5",
+    "gatsby-plugin-offline": "^2.0.11",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-sharp": "^2.0.7",
+    "gatsby-source-filesystem": "^2.0.4",
+    "gatsby-source-storyblok": "^0.2.3",
+    "gatsby-transformer-sharp": "^2.1.4",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0",
+    "storyblok-react": "0.0.6"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "Private",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "test": "npm run eslint",
+    "eslint": "eslint --ignore-path .gitignore .",
+    "commit": "npx git-cz",
+    "prettier": "yarn prettier:js && git add .",
+    "prettier:js": "prettier --write *.js src/*.js src/**/*.js src/**/**/*.js src/**/**/**/*.js src/**/**/**/**/*.js"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "babel-eslint": "^10.0.3",
+    "commitlint": "^8.2.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.5",
+    "prettier": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/nave/storyblok-gatsby-boilerplate"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
