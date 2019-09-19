@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        accessToken: 'gPji6smKzhnrsR8BhPGAMwtt',
+        accessToken: process.env.GATSBY_TOKEN_PUBLIC || process.env.GATSBY_TOKEN_PREVIEW,
         homeSlug: 'home',
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft'
       }
