@@ -2,7 +2,6 @@ import React, { useEffect, useCallback, useState } from 'react'
 import SbEditable from 'storyblok-react'
 import config from '../../gatsby-config'
 import Components from '../components/components'
-import PageNotFound from '../components/page_not_found'
 
 const loadStoryblokBridge = cb => {
   const [sbConfig = {}] = config.plugins.filter(item => item.resolve === 'gatsby-source-storyblok')
@@ -59,17 +58,12 @@ const StoryblokEntry = () => {
         })
       }
     })
-
     window.storyblok.pingEditor(() => window.storyblok.inEditor && window.storyblok.enterEditmode())
   }, [story])
 
   useEffect(() => {
     loadStoryblokBridge(initStoryblokEvents)
   }, [])
-
-  if (!story) {
-    return <PageNotFound />
-  }
 
   return (
     <SbEditable content={story.content}>
