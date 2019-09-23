@@ -1,10 +1,8 @@
 import React, { useEffect, useCallback, useState } from 'react'
 import SbEditable from 'storyblok-react'
-
-import Components from '../components/components'
-import Navi from '../components/navi'
-
 import config from '../../gatsby-config'
+import Components from '../components/components'
+import PageNotFound from '../components/page_not_found'
 
 const loadStoryblokBridge = cb => {
   const [sbConfig = {}] = config.plugins.filter(item => item.resolve === 'gatsby-source-storyblok')
@@ -33,18 +31,6 @@ const getParam = key =>
 
 const StoryblokEntry = () => {
   const [story, setStory] = useState(null)
-  const [globalNavi, setGlobalNavi] = useState({ content: {} })
-
-  const loadGlovalNavi = useCallback(lang => {
-    const language = lang === 'default' ? '' : `${lang}/`
-    window.storyblok.get(
-      {
-        slug: `${language}global-navi`,
-        version: 'draft'
-      },
-      data => setGlobalNavi(data.story)
-    )
-  }, [])
 
   const loadStory = useCallback(
     () =>
@@ -55,7 +41,6 @@ const StoryblokEntry = () => {
         },
         data => {
           setStory(data.story)
-          return loadGlovalNavi(data.story.lang)
         }
       ),
     []
@@ -83,13 +68,12 @@ const StoryblokEntry = () => {
   }, [])
 
   if (!story) {
-    return <div></div>
+    return <PageNotFound />
   }
 
   return (
     <SbEditable content={story.content}>
       <div>
-        <Navi blok={globalNavi.content}></Navi>
         {React.createElement(Components(story.content.component), { key: story.content._uid, blok: story.content })}
       </div>
     </SbEditable>
