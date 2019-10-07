@@ -13,7 +13,7 @@ const StoryblokEntry = ({ pageContext }) => {
     }
 
     setStory({
-      ...story,
+      ...pageContext.story,
       content: JSON.parse(pageContext.story.content)
     })
     setGlobalNavi({
