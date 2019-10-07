@@ -30,7 +30,7 @@
     "test": "npm run eslint",
     "eslint": "eslint --ignore-path .gitignore .",
     "commit": "npx git-cz",
-    "prettier": "yarn prettier:js && git add .",
+    "prettier": "yarn prettier:js && git update-index --again",
     "prettier:js": "prettier --write *.js src/*.js src/**/*.js src/**/**/*.js src/**/**/**/*.js src/**/**/**/**/*.js"
   },
   "devDependencies": {
