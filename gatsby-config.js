@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter'
@@ -11,10 +13,11 @@ module.exports = {
       options: {
         accessToken: process.env.GATSBY_TOKEN_PUBLIC || process.env.GATSBY_TOKEN_PREVIEW,
         homeSlug: 'home',
-        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft'
+        version: process.env.ENV === 'production' ? 'published' : 'draft'
       }
     },
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

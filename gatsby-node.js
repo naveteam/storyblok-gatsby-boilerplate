@@ -1,4 +1,11 @@
 const path = require('path')
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: 'empty'
+    }
+  })
+}
 
 exports.createPages = ({ graphql, actions: { createPage } }) =>
   new Promise((resolve, reject) => {
@@ -38,22 +45,22 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
 
         contents.forEach(entry => {
           const pagePath = entry.node.full_slug === 'home' ? '' : `${entry.node.full_slug}/`
-          const [globalNavi] = entries.filter(
-            globalEntry =>
-              globalEntry.node.field_component === 'global_navi' && globalEntry.node.lang === entry.node.lang
-          )
+          // const [globalNavi] = entries.filter(
+          //   globalEntry =>
+          //     globalEntry.node.field_component === 'global_navi' && globalEntry.node.lang === entry.node.lang
+          // )
 
-          if (!globalNavi) {
-            throw new Error(
-              'The global navigation item has not been found. Please create a content item with the content type global_navi in Storyblok.'
-            )
-          }
+          // if (!globalNavi) {
+          //   throw new Error(
+          //     'The global navigation item has not been found. Please create a content item with the content type global_navi in Storyblok.'
+          //   )
+          // }
 
           createPage({
             path: `/${pagePath}`,
             component: storyblokEntry,
             context: {
-              globalNavi: globalNavi.node,
+              // globalNavi: globalNavi.node,
               story: entry.node
             }
           })

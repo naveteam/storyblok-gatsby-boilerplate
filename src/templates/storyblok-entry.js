@@ -8,7 +8,7 @@ const StoryblokEntry = ({ pageContext }) => {
   const [globalNavi, setGlobalNavi] = useState({ content: {} })
 
   useEffect(() => {
-    if (state.story.uuid === props.pageContext.story.uuid) {
+    if (story.uuid === pageContext.story.uuid) {
       return
     }
 
@@ -16,15 +16,15 @@ const StoryblokEntry = ({ pageContext }) => {
       ...pageContext.story,
       content: JSON.parse(pageContext.story.content)
     })
-    setGlobalNavi({
-      ...globalNavi,
-      content: JSON.parse(pageContext.globalNavi.content)
-    })
+    // setGlobalNavi({
+    //   ...globalNavi,
+    //   content: JSON.parse(pageContext.globalNavi.content)
+    // })
   }, [story, pageContext.story])
 
   return (
     <div>
-      <Navi blok={globalNavi.content}></Navi>
+      {/* <Navi blok={globalNavi.content}></Navi> */}
       {React.createElement(Components(story.content.component), { key: story.content._uid, blok: story.content })}
     </div>
   )
