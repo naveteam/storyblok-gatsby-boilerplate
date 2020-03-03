@@ -65,6 +65,10 @@ const StoryblokEntry = () => {
     loadStoryblokBridge(initStoryblokEvents)
   }, [])
 
+  if (!story) {
+    return <div />
+  }
+
   return (
     <SbEditable content={story.content}>
       <div>
